@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css" />
+    <title>Listing Details</title>
+</head>
+<body>
+
+<div class="listing-details-container">
+    <div class="listing-header">
+        <h1>Modern Chair</h1>
+        <div class="listing-meta">
+            <span class="price-tag">$80</span>
+            <span class="listing-location-tag">New</span>
+        </div>
+    </div>
+    <div class="listing-content">
+        <div class="listing-gallery">
+            <h3>Description</h3>
+            <p>This minimalist chair fits perfectly in a dorm room or small apartment, combining modern design with comfort and durability. Barely used, in excellent condition. I think  thats reallt cool  so what dfo you think will happen </p>
+        </div>
+        <div class="listing-info">
+            
+            <div id="mini-map"></div> <!-- Mini-map container -->
+        </div>
+    </div>
+    <br>
+    <div class="listing-contact">
+        <div class="carousel">
+            <div class="carousel-images">
+                <div class="image-gallery">
+                    <div class="image-strip">
+                        <img src="images/ModernChair1.png" alt="First" onclick="enlargeImage(this)">
+                        <img src="images/ModernChair2.png" alt="Second" onclick="enlargeImage(this)">
+                        <img src="images/ModernChair3.png" alt="Third" onclick="enlargeImage(this)">
+                        
+                    </div>
+                  </div>
+                  <div id="myModal" class="modal">
+                    <span class="close" onclick="closeModal()">&times;</span>
+                    <img class="modal-content" id="img01">
+                    <div id="caption"></div>
+                  </div>
+            </div>
+           
+        </div>
+        <h3>Contact Seller</h3>
+        <!-- Contact form or messaging button -->
+    </div>
+</div>
+
+
+
+<script src="scripts.js"></script>
+<script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"></script>
+<script>
+    // Initialize mini-map
+    var miniMap = L.map('mini-map', {
+        center: [41.1490, -81.3419], 
+        zoom: 17,
+        dragging: !L.Browser.mobile, // Disable dragging for mobile
+        tap: !L.Browser.mobile, // Disable map tap for mobile
+        zoomControl: false,
+        scrollWheelZoom: false // Disable scroll wheel zoom
+    });
+
+    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png').addTo(miniMap);
+
+    // Add marker to mini-map
+    var marker = L.marker([41.1490, -81.3419]).addTo(miniMap); 
+</script>
+
+
+
+</body>
+</html>
+
+
+

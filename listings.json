@@ -1,0 +1,52 @@
+{
+    "listings": [
+        {
+            "id": "1",
+            "coords": [41.1519, -81.3449],
+            "photoUrls": [
+                "images/chair.png"
+            ],
+            "price": "$100",
+            "title": "Classic Chair",
+            "description": "A sturdy and comfortable chair with a classic oak finish.",
+            "datePosted": "2023-01-01",
+            "url": "listing.html"
+        },
+        {
+            "id": "2",
+            "coords": [41.1495, -81.349],
+            "photoUrls": [
+                "images/ModernChair1.png"
+            ],
+            "price": "$200",
+            "title": "Modern Chair",
+            "description": "A modern chair with a minimalist design and sleek finish.",
+            "datePosted": "2023-01-02",
+            "url": "listing.html"
+        },
+        {
+            "id": "3",
+            "coords": [41.1460, -81.3419],
+            "photoUrls": [
+                "images/ModernChair2.png"
+            ],
+            "price": "$50",
+            "title": "Budget Chair",
+            "description": "An affordable chair with basic functionality and comfort.",
+            "datePosted": "2023-01-03",
+            "url": "listing.html"
+        },
+        {
+            "id": "4",
+            "coords": [41.1505, -81.3360],
+            "photoUrls": [
+                "images/ModernChair3.png"
+            ],
+            "price": "$250",
+            "title": "Basic Chair",
+            "description": "A luxurious chair designed for sophisticated interiors.",
+            "datePosted": "2023-01-04",
+            "url": "listing.html"
+        }
+    ]
+}
