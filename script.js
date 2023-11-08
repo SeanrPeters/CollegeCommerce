@@ -37,8 +37,7 @@ function loadListings(map) {
         });
 }
 
-// This function returns a static array for demonstration purposes.
-// In a real application, this would be replaced with a database fetch.
+// This function returns a static array for demonstration 
 function fetchListingsFromDatabase() {
     return [
       {
@@ -97,14 +96,10 @@ function createPopupContent(listing) {
           <h3>${listing.title}</h3>
           <img src="${listing.photoUrls[0]}" alt="${listing.title}" width="100" onclick="openModal(this)" />
           <div class="price">${listing.price}</div>
-          <a href="${listing.url}" target="_blank"><button>More Info</button></a>
+          <a href="${listing.url}" style="text-decoration: none;"><button>More Info</button></a>
       </div>
     `;
-  }
-  
-
-
-
+}
 
 
 function openModal(img) {
@@ -132,19 +127,16 @@ function closeModal() {
 function enlargeImage(img) {
     // Check if the image is already enlarged
     if (img.classList.contains("enlarged")) {
-        // If it is, minimize it
+
         img.classList.remove("enlarged");
-        // Remove the click event listener if you want to disable toggling
-        // img.removeEventListener('click', shrinkImage);
+    
     } else {
-        // If it's not, enlarge it
         img.classList.add("enlarged");
-        // Optionally, add a click event listener to allow toggling
-        // img.addEventListener('click', shrinkImage);
+      
     }
 }
 
-// Optional function to handle click to minimize
+
 function shrinkImage(event) {
     var img = event.target;
     img.classList.remove("enlarged");

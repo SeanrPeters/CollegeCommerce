@@ -85,9 +85,6 @@ body, html {
     background-color: #f1f1f1;
 }
 
-
-
-
 .listing-details-container {
     max-width: 800px;
     margin: 2rem auto;
@@ -162,11 +159,6 @@ body, html {
     color: #333;
 }
 
-/* ... additional styles ... */
-
-
-
-
 
 /* Listing details container styles */
 .listing-details-container {
@@ -197,12 +189,9 @@ body, html {
 }
 
 
-
-
-
 .image-gallery {
     display: flex;
-    justify-content: center; /* Center the child horizontally */
+    justify-content: center; 
     overflow-x: auto; /* Scrollbar will appear if the strip exceeds width */
 }
 
@@ -218,24 +207,24 @@ body, html {
 }
 
 .enlarged {
-    transform: scale(2); /* Example to double the size */
-    transition: transform 0.2s; /* Smooth transition for the transformation */
-    z-index: 10; /* Ensure the enlarged image is above other elements */
+    transform: scale(2); 
+    transition: transform 0.2s; 
+    z-index: 10; 
   }
   
 
 /* Modal (background) */
 .modal {
-    display: none; /* Hidden by default */
+    display: none; 
     position: fixed;
-    z-index: 1; /* Sit on top */
-    padding-top: 100px; /* Location of the box */
+    z-index: 1; 
+    padding-top: 100px;
     left: 0;
     top: 0;
-    width: 100%; /* Full width */
-    height: 100%; /* Full height */
-    background-color: rgb(0,0,0); /* Fallback color */
-    background-color: rgba(0,0,0,0.9); /* Black w/ opacity */
+    width: 100%; 
+    height: 100%; 
+    background-color: rgb(0,0,0); 
+    background-color: rgba(0,0,0,0.9); 
 }
 
 /* Modal Content (image) */
