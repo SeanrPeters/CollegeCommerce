@@ -101,48 +101,23 @@ function createPopupContent(listing) {
     `;
 }
 
-
-function openModal(img) {
-    // Get the modal
+function enlargeImage(img) {
     var modal = document.getElementById("myModal");
     var modalImg = document.getElementById("img01");
     var captionText = document.getElementById("caption");
     modal.style.display = "block";
     modalImg.src = img.src;
     captionText.innerHTML = img.alt;
-
-    // Use the function to stop scrolling
-    document.body.style.overflow = "hidden";
 }
 
 function closeModal() {
     var modal = document.getElementById("myModal");
     modal.style.display = "none";
-
-    // Re-enable scrolling when the modal is closed
-    document.body.style.overflow = "auto";
-}
-
-//Enlarges the Images in the listing
-function enlargeImage(img) {
-    // Check if the image is already enlarged
-    if (img.classList.contains("enlarged")) {
-
-        img.classList.remove("enlarged");
-    
-    } else {
-        img.classList.add("enlarged");
-      
-    }
 }
 
 
-function shrinkImage(event) {
-    var img = event.target;
-    img.classList.remove("enlarged");
-    // Stop the propagation of the click event to prevent reopening the image
-    event.stopPropagation();
-}
+
+
 
 
 
