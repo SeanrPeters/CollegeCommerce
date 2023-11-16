@@ -103,20 +103,19 @@
 
 
 .image-gallery {
-    overflow-x: auto; /* Enable horizontal scrolling */
-    white-space: nowrap; /* Keep all images in a single line */
-    padding: 10px 0; /* Add some padding for aesthetics */
+    overflow-x: auto; 
+    white-space: nowrap; 
+    padding: 10px 0; 
 }
 
 .image-strip img {
-    display: inline-block; /* Display images inline */
-    vertical-align: top; /* Align images to the top */
-    max-height: 200px; /* Adjust height as needed */
-    margin-right: 8px; /* Space between images */
-    cursor: pointer; /* Cursor changes to pointer on hover */
+    display: inline-block;
+    vertical-align: top; 
+    max-height: 200px;
+    margin-right: 8px; 
+    cursor: pointer; 
 }
 
-/* Optional: Remove the scrollbar for a cleaner look */
 .image-gallery::-webkit-scrollbar {
     display: none;
 }
