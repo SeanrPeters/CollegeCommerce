@@ -22,6 +22,9 @@
             <a href="#">Saved Listings</a>
             <a href="#">Settings</a>
             <a href="#">Logout</a>
+            <a href="login.html">Log in</a>
+
+
         </div>
     </div>
   
@@ -31,6 +34,34 @@
 
     <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"></script>
     <script src="script.js"></script>
+    <script>
+    window.onload = function() {
+        updateSignInState();
+    };
+
+    function updateSignInState() {
+        const isUserSignedIn = localStorage.getItem('isUserSignedIn') === 'true';
+        const loginLink = document.querySelector('.dropdown-content a[href="login.html"]');
+        const logoutLink = document.querySelector('.dropdown-content a[href="#Logout"]');
+
+        if (isUserSignedIn) {
+            loginLink.style.display = 'none';
+            logoutLink.style.display = 'block';
+        } else {
+            loginLink.style.display = 'block';
+            logoutLink.style.display = 'none';
+        }
+    }
+
+    function logOut() {
+    localStorage.removeItem('isUserSignedIn');
+    updateSignInState();
+    // Optional: Redirect to a specific page
+    // window.location.href = 'somepage.html';
+}
+
+</script>
+
 </body>
 </html>
 

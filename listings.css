@@ -125,8 +125,6 @@
     scrollbar-width: none;  /* Firefox */
 }
 
-
-
 .modal {
     display: none; 
     position: fixed; 
