@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Profile</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+
+        header {
+            background-color: #007bff;
+            color: white;
+            text-align: center;
+            padding: 10px;
+        }
+
+        main {
+            display: flex;
+            justify-content: center;
+            flex: 1;
+        }
+
+        nav {
+            background-color: #333;
+            color: white;
+            padding: 20px;
+            min-width: 200px;
+            position: fixed;
+            left:0;
+        }
+
+        nav a {
+            display: block;
+            color: white;
+            text-decoration: none;
+            padding: 10px 0;
+            border-bottom: 1px solid white;
+        }
+
+        nav a:hover {
+            background-color: #555;
+        }
+
+        .user-profile {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin: 50px 0;
+        }
+
+        .profile-picture {
+            text-align: center;
+        }
+
+        .profile-picture img {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            object-fit: cover;
+        }
+
+        .change-profile-button {
+            display: block;
+            margin-top: 10px;
+            cursor: pointer;
+            color: #007bff;
+        }
+
+        .user-details {
+            text-align: center;
+            margin-left: 20px;
+        }
+
+        .change-email-password-button {
+            background-color: #007bff;
+            color: white;
+            padding: 10px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            margin-top: 10px;
+        }
+
+        .purchase-history {
+            text-align: center;
+            margin-top: 20px;
+        }
+
+        .purchase-history h2 {
+            border-bottom: 1px solid #007bff;
+            padding-bottom: 5px;
+            margin-bottom: 10px;
+        }
+
+        .purchase-history ul {
+            list-style-type: none;
+            padding: 0;
+			margin: 0;
+        }
+
+        .purchase-history li {
+            margin-bottom: 10px;
+			display: flex;
+			align-items: center;
+        }
+
+        .purchase-history img {
+            width: 50px;
+            height: 50px;
+            margin-left: 10px;
+            object-fit: cover;
+            border-radius: 5px;
+        }
+
+        .posted-listings {
+            text-align: center;
+            margin-top: 20px;
+        }
+
+        .posted-listings h2 {
+            border-bottom: 1px solid #007bff;
+            padding-bottom: 5px;
+            margin-bottom: 10px;
+        }
+
+        .posted-listings ul {
+            list-style-type: none;
+            padding: 20px;
+            margin: 10px;
+        }
+
+        .posted-listings li {
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+        }
+
+        .posted-listings img {
+            width: 50px;
+            height: 50px;
+            margin-left: 10px;
+            object-fit: cover;
+            border-radius: 5px;
+        }
+
+    </style>
+</head>
+<body>
+
+<header>
+    <h1>College Commerce</h1>
+</header>
+
+<main>
+    <nav>
+        <a href="index.html">Home</a>
+        <a href="profile.html">Profile</a>
+        <a href="myListings.html">My Listings</a>
+        <a href="purchases.html">Purchases</a>
+        <a href="#">Saved Listings</a>
+        <a href="#">Logout</a>
+    </nav>
+
+    <div class="user-profile">
+        <div class="profile-picture">
+            <!-- Set a default profile picture -->
+            <img src="stars.jpg" alt="Profile Picture" id="profileImage">
+            <input type="file" accept="image/*" id="profilePictureInput">
+            <label for="profilePictureInput" class="change-profile-button">Change Picture</label>
+        </div>
+        <div class="user-details">
+            <h2>Amy</h2>
+            <p>Email: amy21@hotmail.com</p>
+            <p>Password: ********</p>
+            <button class="change-email-password-button" onclick="changeEmailPassword()">Change Email/Password</button>
+        </div>
+    </div>
+
+    <div class="purchase-history">
+        <h2>Purchase History</h2>
+        <ul>
+            <li>
+                Purchased: "Introduction to JavaScript"
+                <!--img src="book_image1.jpg" alt="Book Image"-->
+            </li>
+            <li>
+                Purchased: "The Art of HTML and CSS"
+                <!--img src="book_image1.jpg" alt="Book Image"-->
+            </li>
+            <li>
+                Purchased: "Lounge Coffee Table"
+                <!--img src="book_image1.jpg" alt="Book Image"-->
+            </li>
+            <li>
+                Purchased: "Modern Desk Lamp"
+                <!--img src="book_image1.jpg" alt="Book Image"-->
+            </li>
+        </ul>
+    </div>
+
+    <div class="posted-listings">
+        <h2>Posted Listings</h2>
+        <ul>
+            <li>
+                Posted: "Advanced CSS Techniques"
+                <!-- Add any relevant information or images related to the posted listing -->
+            </li>
+            <li>
+                Posted: "Wireless Bluetooth Headphones"
+                <!-- Add any relevant information or images related to the posted listing -->
+            </li>
+            <!-- Add more <li> elements for additional posted listings -->
+        </ul>
+    </div>
+
+</main>
+
+<script>
+    function changeEmailPassword() {
+        // Implement the logic to change email/password/username
+        var newName = prompt("Enter your new username:");
+        var newEmail = prompt("Enter your new email:");
+        var newPassword = prompt("Enter your new password:");
+
+        // Update the UI with the new email/password (this is just a placeholder)
+        document.querySelector('.user-details h2').innerText = newName;
+        document.querySelector('.user-details p:nth-child(2)').innerText = "Email: " + newEmail;
+        document.querySelector('.user-details p:nth-child(3)').innerText = "Password: " + "*".repeat(newPassword.length);
+    }
+
+    document.getElementById('profilePictureInput').addEventListener('change', function(event) {
+    var profileImage = document.getElementById('profileImage');
+    var file = event.target.files[0];
+
+    if (file) {
+        var reader = new FileReader();
+
+        reader.onload = function(e) {
+            profileImage.src = e.target.result;
+        };
+
+        reader.readAsDataURL(file);
+    }
+    // Log to the console to check if the event is firing
+    console.log("File input changed");
+});
+
+</script>
+
+</body>
+</html>

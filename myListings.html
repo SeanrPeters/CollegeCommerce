@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Listings</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+
+        header {
+            background-color: #007bff;
+            color: white;
+            text-align: center;
+            padding: 10px;
+        }
+
+        main {
+            display: flex;
+            justify-content: center;
+            flex: 1;
+        }
+
+        nav {
+            background-color: #333;
+            color: white;
+            padding: 20px;
+            min-width: 200px;
+            position: fixed;
+            left: 0;
+        }
+
+        nav a {
+            display: block;
+            color: white;
+            text-decoration: none;
+            padding: 10px 0;
+            border-bottom: 1px solid white;
+        }
+
+        nav a:hover {
+            background-color: #555;
+        }
+
+        .profile {
+            text-align: center;
+            margin: 50px 0;
+        }
+
+        .profile h2 {
+            border-bottom: 1px solid #007bff;
+            padding-bottom: 5px;
+            margin-bottom: 10px;
+        }
+
+        .profile-info {
+            display: flex;
+            justify-content: center;
+        }
+
+        .profile-info div {
+            margin: 0 20px;
+        }
+
+        .profile img {
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            object-fit: cover;
+            margin-bottom: 10px;
+        }
+
+        .profile button {
+            background-color: #007bff;
+            color: white;
+            padding: 10px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+
+        .profile button:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <h1>College Commerce</h1>
+</header>
+
+<main>
+    <nav>
+        <a href="index.html">Home</a>
+        <a href="profile.html">Profile</a>
+        <a href="myListings.html">My Listings</a>
+        <a href="purchases.html">Purchases</a>
+        <a href="#">Saved Listings</a>
+        <a href="#">Logout</a>
+    </nav>
+
+    <div class="my-listings">
+        <h2>My Listings</h2>
+        <ul>
+            <li>
+                <!--img src="book_image3.jpg" alt="Book Image"-->
+                <div>
+                    <strong>Advanced CSS Techniques</strong><br>
+                    <span>Condition: Like New</span><br>
+                    <span>Price: $25.00</span><br>
+                    <button>Edit Listing</button>
+                    <button>Delete Listing</button>
+                </div>
+            </li>
+            <li>
+                <!--img src="electronics_image1.jpg" alt="Electronics Image"-->
+                <div>
+                    <strong>Wireless Bluetooth Headphones</strong><br>
+                    <span>Condition: Brand New</span><br>
+                    <span>Price: $50.00</span><br>
+                    <button>Edit Listing</button>
+                    <button>Delete Listing</button>
+                </div>
+            </li>
+            <!-- Add more items as needed -->
+        </ul>
+    </div>
+</main>
+
+</body>
+</html>

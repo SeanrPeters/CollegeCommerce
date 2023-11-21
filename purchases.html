@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Purchase History</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+
+        header {
+            background-color: #007bff;
+            color: white;
+            text-align: center;
+            padding: 10px;
+        }
+
+        main {
+            display: flex;
+            justify-content: center;
+            flex: 1;
+        }
+
+        nav {
+            background-color: #333;
+            color: white;
+            padding: 20px;
+            min-width: 200px;
+            position: fixed;
+            left: 0;
+        }
+
+        nav a {
+            display: block;
+            color: white;
+            text-decoration: none;
+            padding: 10px 0;
+            border-bottom: 1px solid white;
+        }
+
+        nav a:hover {
+            background-color: #555;
+        }
+
+        .purchase-history {
+            text-align: center;
+            margin: 50px 0;
+        }
+
+        .purchase-history h2 {
+            border-bottom: 1px solid #007bff;
+            padding-bottom: 5px;
+            margin-bottom: 10px;
+        }
+
+        .purchase-history ul {
+            list-style-type: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .purchase-history li {
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+            border: 1px solid #ccc;
+            padding: 15px;
+            border-radius: 5px;
+        }
+
+        .purchase-history img {
+            width: 50px;
+            height: 50px;
+            margin-right: 10px;
+            object-fit: cover;
+            border-radius: 5px;
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <h1>College Commerce</h1>
+</header>
+
+<main>
+    <nav>
+        <a href="index.html">Home</a>
+        <a href="profile.html">Profile</a>
+        <a href="myListings.html">My Listings</a>
+        <a href="purchases.html">Purchases</a>
+        <a href="#">Saved Listings</a>
+        <a href="#">Logout</a>
+    </nav>
+
+    <div class="purchase-history">
+        <h2>Purchase History</h2>
+        <ul>
+            <li>
+                <!--img src="book_image1.jpg" alt="Book Image"-->
+                <div>
+                    <strong>Introduction to JavaScript</strong><br>
+                    <span>Condition: Like New</span><br>
+                    <span>Price: $30.00</span><br>
+                    Purchased on: January 1, 2023
+                </div>
+            </li>
+            <li>
+                <!--img src="book_image2.jpg" alt="Book Image"-->
+                <div>
+                    <strong>The Art of HTML and CSS</strong><br>
+                    <span>Condition: Good</span><br>
+                    <span>Price: $20.00</span><br>
+                    Purchased on: February 5, 2023
+                </div>
+            </li>
+            <li>
+                <!--img src="furniture_image1.jpg" alt="Furniture Image"-->
+                <div>
+                    <strong>Lounge Coffee Table</strong><br>
+                    <span>Condition: Excellent</span><br>
+                    <span>Price: $100.00</span><br>
+                    Purchased on: March 10, 2023
+                </div>
+            </li>
+            <li>
+                <!--img src="furniture_image2.jpg" alt="Furniture Image"-->
+                <div>
+                    <strong>Modern Desk Lamp</strong><br>
+                    <span>Condition: Very Good</span><br>
+                    <span>Price: $50.00</span><br>
+                    Purchased on: April 15, 2023
+                </div>
+            </li>
+        </ul>
+    </div>
+    
+</main>
+
+</body>
+</html>
