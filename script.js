@@ -8,6 +8,33 @@ document.addEventListener("DOMContentLoaded", function() {
         } else {
             dropdownContent.style.display = "none";
         }
+    // Event listener for submitting a new listing
+  document.getElementById('listingForm').addEventListener('submit', function (event) {
+    event.preventDefault();
+    const formData = {
+      Seller_ID: 'Seller_ID',
+      Description: 'Description',
+      Price: 'Price',
+      Location_ID: ['your_latitude', 'your_longitude'],
+      Transaction_Date: 'Transction_Date',
+      Buyer_ID: 'Buyer_ID',
+      Title: 'Title',
+      Photo_Urls: 'Photo_Urls',
+      Date_Posted: 'Date_Posted',
+      URL: 'URL'
+    };
+    
+    fetch('http://localhost:1433/api/listings', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify(formData),
+    })
+      .then(response => response.json())
+      .then(data => console.log(data))
+      .catch(error => console.error('Error:', error));
+  });
     });
 
     // Initialize the map on window load

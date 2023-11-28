@@ -5,40 +5,57 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Google Sign-In Demo</title>
     <script src="https://accounts.google.com/gsi/client" async defer></script>
+    <style>
+       
+        #g_id_signin {
+            display: flex;
+            justify-content: center;
+            margin-top: 50px; 
+        }
+
+        #user_info {
+            display: none; 
+            text-align: center; 
+            margin-top: 20px; 
+        }
+
+       
+        #user_info img {
+            width: 100px; 
+            border-radius: 50%; 
+            margin-bottom: 10px;
+        }
+
+        #user_info p {
+            font-size: 1.2em; 
+            color: #333; 
+        }
+    </style>
 </head>
 <body>
     <div id="g_id_signin" data-type="standard" data-shape="rectangular" data-theme="outline"></div>
     
-    <div id="user_info" style="display:none;">
+    <div id="user_info">
         <img id="user_image" src="" alt="User Image"/>
         <p>Name: <span id="user_name"></span></p>
         <p>Email: <span id="user_email"></span></p>
-        <p>User ID: <span id="user_id"></span></p> <!-- USER ID -->
+        <p>User ID: <span id="user_id"></span></p>
     </div>
 
     <script>
-        window.onload = function () {
-            google.accounts.id.initialize({
-                client_id: '311959173826-mdhmgmtbdb245kon0is66i1mgptu0sn1.apps.googleusercontent.com', 
-                callback: handleCredentialResponse
-            });
-            google.accounts.id.renderButton(
-                document.getElementById('g_id_signin'),
-                { theme: 'outline', size: 'large' }
-            );
-        };
-
         function handleCredentialResponse(response) {
             const decodedJwt = parseJwt(response.credential);
-            
+  
             document.getElementById('user_name').innerText = decodedJwt.name;
             document.getElementById('user_email').innerText = decodedJwt.email;
             document.getElementById('user_image').src = decodedJwt.picture;
-            document.getElementById('user_id').innerText = decodedJwt.sub; // USER ID
+            document.getElementById('user_id').innerText = decodedJwt.sub; 
             document.getElementById('user_info').style.display = 'block';
+            localStorage.setItem('userName', decodedJwt.name);
+            localStorage.setItem('userEmail', decodedJwt.email);
             localStorage.setItem('userProfileImage', decodedJwt.picture);
-            localStorage.setItem('isUserSignedIn', true);
-         //   window.location.href = 'index.html'; //redirects back to the home page once logged in
+            localStorage.setItem('isUserSignedIn', 'true');
+            window.location.href = 'index.html';
         }
 
         function parseJwt (token) {
@@ -50,10 +67,17 @@
 
             return JSON.parse(jsonPayload);
         };
+
+        window.onload = function () {
+            google.accounts.id.initialize({
+                client_id: '311959173826-mdhmgmtbdb245kon0is66i1mgptu0sn1.apps.googleusercontent.com', 
+                callback: handleCredentialResponse
+            });
+            google.accounts.id.renderButton(
+                document.getElementById('g_id_signin'),
+                { theme: 'outline', size: 'large' }
+            );
+        };
     </script>
 </body>
 </html>
-
-
-
-

@@ -171,15 +171,14 @@
     <div class="user-profile">
         <div class="profile-picture">
             <!-- Set a default profile picture -->
-            <img src="stars.jpg" alt="Profile Picture" id="profileImage">
-            <input type="file" accept="image/*" id="profilePictureInput">
-            <label for="profilePictureInput" class="change-profile-button">Change Picture</label>
+            <img src="images/stars.jpg" alt="Profile Picture" id="profileImage">
+   
         </div>
         <div class="user-details">
-            <h2>Amy</h2>
-            <p>Email: amy21@hotmail.com</p>
-            <p>Password: ********</p>
-            <button class="change-email-password-button" onclick="changeEmailPassword()">Change Email/Password</button>
+            <h2>Please Sign in</h2>
+            <p>Email: none</p>
+            <a href="login.html" id="loginButton">Log in</a>
+           <!--<button class="change-email-password-button" onclick="changeEmailPassword()">Change Email/Password</button>--> 
         </div>
     </div>
 
@@ -223,34 +222,48 @@
 </main>
 
 <script>
-    function changeEmailPassword() {
-        // Implement the logic to change email/password/username
-        var newName = prompt("Enter your new username:");
-        var newEmail = prompt("Enter your new email:");
-        var newPassword = prompt("Enter your new password:");
+//     function changeEmailPassword() {
+//         // Implement the logic to change email/password/username
+//         var newName = prompt("Enter your new username:");
+//         var newEmail = prompt("Enter your new email:");
+//         var newPassword = prompt("Enter your new password:");
 
-        // Update the UI with the new email/password (this is just a placeholder)
-        document.querySelector('.user-details h2').innerText = newName;
-        document.querySelector('.user-details p:nth-child(2)').innerText = "Email: " + newEmail;
-        document.querySelector('.user-details p:nth-child(3)').innerText = "Password: " + "*".repeat(newPassword.length);
-    }
+//         // Update the UI with the new email/password (this is just a placeholder)
+//         document.querySelector('.user-details h2').innerText = newName;
+//         document.querySelector('.user-details p:nth-child(2)').innerText = "Email: " + newEmail;
+//         document.querySelector('.user-details p:nth-child(3)').innerText = "Password: " + "*".repeat(newPassword.length);
+//     }
 
-    document.getElementById('profilePictureInput').addEventListener('change', function(event) {
-    var profileImage = document.getElementById('profileImage');
-    var file = event.target.files[0];
+//     document.getElementById('profilePictureInput').addEventListener('change', function(event) {
+//     var profileImage = document.getElementById('profileImage');
+//     var file = event.target.files[0];
 
-    if (file) {
-        var reader = new FileReader();
+//     if (file) {
+//         var reader = new FileReader();
 
-        reader.onload = function(e) {
-            profileImage.src = e.target.result;
-        };
+//         reader.onload = function(e) {
+//             profileImage.src = e.target.result;
+//         };
 
-        reader.readAsDataURL(file);
-    }
-    // Log to the console to check if the event is firing
-    console.log("File input changed");
-});
+//         reader.readAsDataURL(file);
+//     }
+//     // Log to the console to check if the event is firing
+//     console.log("File input changed");
+// });
+
+window.onload = function() {
+        // Check if user information is stored in localStorage
+        if (localStorage.getItem('isUserSignedIn') === 'true') {
+            var userName = localStorage.getItem('userName');
+            var userEmail = localStorage.getItem('userEmail');
+            var userProfileImage = localStorage.getItem('userProfileImage');
+
+            // Update the profile page with user information
+            document.querySelector('.user-details h2').innerText = userName;
+            document.querySelector('.user-details p:nth-child(2)').innerText = "Email: " + userEmail;
+            document.getElementById('profileImage').src = userProfileImage;
+        }
+    };
 
 </script>
 
