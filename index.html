@@ -19,42 +19,27 @@
             <a href="profile.html">Profile</a>
             <a href="purchases.html">Purchases</a>
             <a href="myListings.html">My Listings</a>
-            <a href="#" id="logoutButton" style="display: none;">Logout</a>
-            <a href="login.html" id="loginButton">Log in</a>
-            
-            
 
+<a href="login.html" id="loginButton">Log in</a>
+<a href="#" id="logoutButton" style="display: none;" onclick="logout()">Logout</a>
+
+            
         </div>
     </div>
   
     <div id="map"></div>
 
-    <a href="addListing.html" class="add-button">+</a>
+  <!-- Plus sign button/link -->
+  <a href="addListing.html" id="addListingLink" class="add-button" style="display: none;">+</a>
+
+<!-- This should be in your index.html -->
+<a href="login.html" id="signInPrompt" class="sign-in-prompt" style="display: block;">log in to post listings</a>
+
 
     <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"></script>
     <script src="script.js"></script>
-    <script>
-    window.onload = function() {
-        updateSignInState();
-    };
+    <script src="auth.js"></script>
 
-    function updateSignInState() {
-        const isUserSignedIn = localStorage.getItem('isUserSignedIn') === 'true';
-        const loginLink = document.querySelector('.dropdown-content a[href="login.html"]');
-        const logoutLink = document.querySelector('.dropdown-content a[href="#Logout"]');
-
-        if (isUserSignedIn) {
-            loginLink.style.display = 'none';
-            logoutLink.style.display = 'block';
-        } else {
-            loginLink.style.display = 'block';
-            logoutLink.style.display = 'none';
-        }
-    }
-
-   
-
-</script>
 
 </body>
 </html>

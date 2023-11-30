@@ -222,34 +222,7 @@
 </main>
 
 <script>
-//     function changeEmailPassword() {
-//         // Implement the logic to change email/password/username
-//         var newName = prompt("Enter your new username:");
-//         var newEmail = prompt("Enter your new email:");
-//         var newPassword = prompt("Enter your new password:");
 
-//         // Update the UI with the new email/password (this is just a placeholder)
-//         document.querySelector('.user-details h2').innerText = newName;
-//         document.querySelector('.user-details p:nth-child(2)').innerText = "Email: " + newEmail;
-//         document.querySelector('.user-details p:nth-child(3)').innerText = "Password: " + "*".repeat(newPassword.length);
-//     }
-
-//     document.getElementById('profilePictureInput').addEventListener('change', function(event) {
-//     var profileImage = document.getElementById('profileImage');
-//     var file = event.target.files[0];
-
-//     if (file) {
-//         var reader = new FileReader();
-
-//         reader.onload = function(e) {
-//             profileImage.src = e.target.result;
-//         };
-
-//         reader.readAsDataURL(file);
-//     }
-//     // Log to the console to check if the event is firing
-//     console.log("File input changed");
-// });
 
 window.onload = function() {
         // Check if user information is stored in localStorage
@@ -266,6 +239,7 @@ window.onload = function() {
     };
 
 </script>
+<script src="auth.js"></script>
 
 </body>
 </html>
