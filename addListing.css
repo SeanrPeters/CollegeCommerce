@@ -2,10 +2,11 @@ body {
     font-family: Arial, sans-serif;
     background-color: #f4f4f4;
     display: flex;
-    justify-content: center;
+    flex-direction: column; /* Align items vertically */
+    justify-content: flex-start; /* Align content to start from top */
     align-items: center;
-    height: 100vh;
-    margin: 0;
+    margin: 20;
+    padding-top: 30px; /* Add some padding at the top */
 }
 
 .form-container {
