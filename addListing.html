@@ -5,8 +5,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Create Listing</title>
     <link rel="stylesheet" href="addListing.css">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css" />
+    <!-- No Firebase SDK script tags needed; ES6 modules will be used -->
 </head>
 <body>
+
     <div class="form-container">
         <form id="listingForm" enctype="multipart/form-data">
             <h2>Create Listing</h2>
@@ -26,9 +29,25 @@
                 <label for="photos">Photos (up to 10):</label>
                 <input type="file" id="photos" name="photos" accept="image/*" multiple>
             </div>
+            <div class="form-group">
+                <label for="location">Location (click to drop a pin):</label>
+                <div id="map" style="height: 300px;"></div> <!-- Map container -->
+                <input type="hidden" id="latitude" name="latitude">
+                <input type="hidden" id="longitude" name="longitude">
+            </div>
             <button type="submit">Post Listing</button>
         </form>
     </div>
 
+    <!-- Leaflet JavaScript -->
+    <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"></script>
+
+    <!-- get location -->
+    <script src="getListingLocation.js"></script>
+
+    
+    
+
 </body>
 </html>
+

@@ -57,7 +57,7 @@
             localStorage.setItem('isUserSignedIn', 'true');
             window.location.href = 'index.html';
         }
-
+   // Function to parse JWT token and extract payload
         function parseJwt (token) {
             var base64Url = token.split('.')[1];
             var base64 = base64Url.replace(/-/g, '+').replace(/_/g, '/');
@@ -67,8 +67,8 @@
 
             return JSON.parse(jsonPayload);
         };
-
-        window.onload = function () {
+  // Initialize and render the Google Sign-In button when the window loads
+  window.onload = function () {
             google.accounts.id.initialize({
                 client_id: '311959173826-mdhmgmtbdb245kon0is66i1mgptu0sn1.apps.googleusercontent.com', 
                 callback: handleCredentialResponse

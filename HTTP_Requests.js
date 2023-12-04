@@ -5,6 +5,16 @@ const bodyParser = require('body-parser');
 const app = express();
 const port = 1433;
 
+app.use(function(req, res, next) {
+    // TODO this is maybe bad for security or something maybe?
+    res.header("Access-Control-Allow-Origin", "*");
+    res.header(
+      "Access-Control-Allow-Headers",
+      "Origin, X-Requested-With, Content-Type, Accept"
+    );
+    next();
+  });
+
 app.use(bodyParser.json());
 
 const config = {
@@ -65,27 +75,22 @@ app.get('/api/listings', async (req, res) => {
 });
 
 app.post('/api/listings', async (req, res) => {
-    const { Seller_ID, Description, Price, Location_ID, Transaction_Date, Buyer_ID, Title, Photo_Urls, Date_Posted, URL } = req.body;
+    const {Description, Price, Title, Photo_Urls} = req.body;
 
     const sqlInsert = `
         INSERT INTO Listings (Seller_ID, Description, Price, Location_ID, Transaction_Date, Buyer_ID, Title, Photo_Urls, Date_Posted, URL)
-        VALUES (?, ?, ?, POINT(?, ?), ?, ?, ?, ?, ?, ?);
+        VALUES (@Seller_ID, @Description, @Price, null, null, null, @Title, @Photo_Urls, SYSDATETIME(), @URL);
     `;
 
     try {
         const poolConnection = await sql.connect(config);
         const result = await poolConnection.request()
-            .input('Seller_ID', Seller_ID)
+            .input('Seller_ID', 1) // TODO get user id of signed in account
             .input('Description', Description)
             .input('Price', Price)
-            .input('Location_ID[0]', Location_ID[0])
-            .input('Location_ID[1]', Location_ID[1])
-            .input('Transaction_Date', Transaction_Date)
-            .input('Buyer_ID', Buyer_ID)
             .input('Title', Title)
-            .input('Photo_Urls', Photo_Urls)
-            .input('Date_Posted', Date_Posted)
-            .input('URL', URL)
+            .input('Photo_Urls', null) // TODO use photo urls from form
+            .input('URL', null) // TODO generate url to put here
             .query(sqlInsert);
 
         res.status(201).json({ message: 'Listing added successfully', listingId: result.insertId });
