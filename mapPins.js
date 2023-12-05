@@ -35,7 +35,7 @@ function createPopupContent(listing) {
     return `
       <div class="listing-popup">
           <h3>${listing.Title}</h3>
-          <img src="\defaultImage.png" alt="${listing.Title}" width="100" onclick="openModal(this)" />
+          <img src="\images\chair.png" alt="${listing.Title}" width="100" onclick="openModal(this)" />
           <div class="price">$${listing.Price}</div>
           <a href="\listing.html" style="text-decoration: none;"><button>More Info</button></a>
       </div>
