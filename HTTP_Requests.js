@@ -66,7 +66,7 @@ async function connectAndQuery() {
 app.get('/api/listings', async (req, res) => {
     try {
         const poolConnection = await sql.connect(config);
-        const result = await poolConnection.request().query('SELECT * FROM Listings');
+        const result = await poolConnection.request().query('SELECT * FROM Listings WHERE Buyer_ID is NULL');
         res.json(result.recordset);
     } catch (err) {
         console.error('Error executing query:', err);
@@ -75,11 +75,11 @@ app.get('/api/listings', async (req, res) => {
 });
 
 app.post('/api/listings', async (req, res) => {
-    const {Description, Price, Title, Photo_Urls} = req.body;
+    const {Description, Price, Title, Photo_Urls, Longitude, Latitude} = req.body;
 
     const sqlInsert = `
-        INSERT INTO Listings (Seller_ID, Description, Price, Location_ID, Transaction_Date, Buyer_ID, Title, Photo_Urls, Date_Posted, URL)
-        VALUES (@Seller_ID, @Description, @Price, null, null, null, @Title, @Photo_Urls, SYSDATETIME(), @URL);
+        INSERT INTO Listings (Seller_ID, Description, Price, Transaction_Date, Buyer_ID, Title, Photo_Urls, Date_Posted, URL, Longitude, Latitude)
+        VALUES (@Seller_ID, @Description, @Price, null, null, @Title, @Photo_Urls, SYSDATETIME(), @URL, @Longitude, @Latitude);
     `;
 
     try {
@@ -91,6 +91,8 @@ app.post('/api/listings', async (req, res) => {
             .input('Title', Title)
             .input('Photo_Urls', null) // TODO use photo urls from form
             .input('URL', null) // TODO generate url to put here
+            .input('Longitude', (Longitude-0))
+            .input('Latitude', (Latitude-0))
             .query(sqlInsert);
 
         res.status(201).json({ message: 'Listing added successfully', listingId: result.insertId });
